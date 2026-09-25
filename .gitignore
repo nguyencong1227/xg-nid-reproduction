@@ -1,10 +1,18 @@
 # Du lieu/output lon - khong dua len GitHub, chi giu code
 # work/    : ket qua thuc nghiem, checkpoint model, do thi (~52GB, gom ca nidiff/work/)
-# data/    : pcap, CSV, cookies.txt, dataset trung gian (~1.9GB)
 # paper/   : PDF paper co ban quyen rieng, khong redistribute qua git
 work/
-data/
 paper/
+
+# data/ duoc day len GitHub, tru:
+# - 3 file vuot qua gioi han 100MB/file cua GitHub
+# - cookies.txt: chua auth token that (Token=... cho cicresearch.ca), khong duoc public
+data/df_class_8_train.csv
+data/CSV.zip
+data/df_class_8_test.csv
+data/cookies.txt
+# symlink tuyet doi tro sang project khac ngoai repo (UAV_Agent), vo nghia voi may khac
+data/dataset/MERGED_CSV
 
 # Python
 __pycache__/
