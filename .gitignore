@@ -1,0 +1,18 @@
+# Du lieu/output lon - khong dua len GitHub, chi giu code
+# work/    : ket qua thuc nghiem, checkpoint model, do thi (~52GB, gom ca nidiff/work/)
+# data/    : pcap, CSV, cookies.txt, dataset trung gian (~1.9GB)
+# paper/   : PDF paper co ban quyen rieng, khong redistribute qua git
+work/
+data/
+paper/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Moi truong / IDE
+.venv/
+*.egg-info/
+.DS_Store

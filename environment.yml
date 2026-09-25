@@ -1,0 +1,23 @@
+# Conda environment for the xgnid/ reimplementation of XG-NID.
+#
+#   conda env create -f environment.yml
+#   conda activate xg-nid
+#
+# The env is deliberately created under /home rather than the first entry of
+# `conda config --show envs_dirs` (/storage/congnc/.conda/envs) on this host:
+# /storage holds the graph datasets and is the tighter of the two disks.
+# Recreate it there explicitly with:
+#   conda create -p /home/congnc/anaconda3/envs/xg-nid python=3.11 -y
+#
+# torch is installed via pip against an explicit CUDA build; the conda-forge
+# build would not match the host's driver.
+name: xg-nid
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu124
+      - torch==2.6.0+cu124
+      - -r requirements-xgnid.txt

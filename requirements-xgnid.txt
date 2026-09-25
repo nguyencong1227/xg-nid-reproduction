@@ -1,0 +1,31 @@
+# Environment for the xgnid/ reimplementation of XG-NID.
+#
+# Versions are pinned to the exact set the pipeline was developed and measured
+# on, so the numbers in xgnid/README.md and work/xgnid/05_run/REPORT.md stay
+# reproducible. Notable pins:
+#   * scikit-learn 1.2.2 - AdaBoostClassifier's default algorithm changed in
+#     later releases, which would move the Table 5/6 baseline numbers.
+#   * pandas 3.0.x       - step2_expl_features relies on grouped-rolling index
+#     behaviour that differs between pandas 2.x and 3.x.
+#   * numpy <2           - required by the scikit-learn pin.
+#
+# torch is NOT listed here; install it first against the right CUDA build:
+#   pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+
+torch-geometric==2.8.0.post1
+nfstream==6.6.0
+pandas==3.0.1
+numpy==1.26.4
+scikit-learn==1.2.2
+tqdm>=4.66
+requests>=2.31          # ollama backend for Component 6
+matplotlib>=3.8
+seaborn>=0.13
+ipykernel>=6.29         # so the repo's notebooks can select this env
+
+# Component 6 (Generative Explainer). Two interchangeable backends:
+#   * ollama  - needs only `requests` above; a server is already running on
+#               this host at 127.0.0.1:11434 with llama3.1:8b available.
+#   * HF      - the path the paper used (Llama 3-8B); weights are gated.
+transformers>=4.44
+accelerate>=0.33
